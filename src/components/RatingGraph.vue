@@ -87,9 +87,17 @@ onMounted(() => {
         fill="none"
       ></circle>
     </svg>
-    <div class="rating rating--1">3.5</div>
-    <div class="rating rating--2">4</div>
-    <div class="rating rating--3">5</div>
+    <div class="rating rating--1">
+      assdfsd<br /><small>asdasdfvd</small><br />3.5
+    </div>
+    <div class="rating rating--2">
+      assdfsd<br /><small>asdasdfvd</small><br />4
+    </div>
+    <div class="rating rating--3">
+      assdfsd<br />
+      <small>asdasdfvd</small>
+      <br />5
+    </div>
   </div>
 </template>
 <style scoped>
@@ -109,14 +117,19 @@ svg {
 .rating {
   position: absolute;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  text-align: center;
   background-color: rgba(250, 250, 252, 0.5);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(4px);
   opacity: 0;
+}
+small {
+  font-size: 10px;
 }
 
 .rating--1 {

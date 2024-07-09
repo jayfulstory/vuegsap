@@ -1,6 +1,7 @@
 @import './base.css';
 
 body {
+  /* width: 100vw; */
   overflow-x: hidden;
 }
 

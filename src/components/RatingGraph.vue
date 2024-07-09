@@ -15,18 +15,26 @@ onMounted(() => {
     strokeDasharray: length,
   });
 
-  gsap.to(circle.value, {
-    strokeDashoffset: 0,
-    duration: 1.5,
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.graph',
+      start: 'top 45%',
+    },
   });
 
-  const tl = gsap.timeline();
-
-  tl.to('.rating', {
-    opacity: 1,
-    stagger: 0.5,
-    duration: 0.3,
+  tl.to(circle.value, {
+    strokeDashoffset: 0,
+    duration: 1.5,
   })
+    .to(
+      '.rating',
+      {
+        opacity: 1,
+        stagger: 0.5,
+        duration: 0.3,
+      },
+      '<'
+    )
     .to('.rating--1', {
       y: -5,
       yoyo: true,
@@ -83,6 +91,7 @@ onMounted(() => {
         r="45"
         stroke="url(#blueYellowGradient)"
         stroke-width="10"
+        stroke-linecap="round"
         style="transform: rotate(-90deg); transform-origin: center"
         fill="none"
       ></circle>

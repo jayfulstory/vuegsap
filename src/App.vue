@@ -9,8 +9,8 @@ import HorizontalView from './views/HorizontalView.vue';
       <span> Home </span>
     </RouterLink>
   </div>
-  <RouterView />
   <HorizontalView />
+  <RouterView />
 </template>
 
 <style scoped>

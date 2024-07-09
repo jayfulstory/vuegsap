@@ -95,10 +95,6 @@ const fanPath = (r, index) =>
       <path v-if="r" :d="fanPath(r.value2, 1).value" fill="#FFED90" />
       <path v-if="r" :d="fanPath(r.value3, 2).value" fill="#FBD300" />
     </svg>
-    <img
-      src="https://icon-pit.com/wp-content/uploads/2020/01/denkyuu_light-bulb_lighting_5198.png"
-      alt=""
-    />
   </div>
   <div class="">3.5</div>
 </template>
@@ -118,9 +114,9 @@ const fanPath = (r, index) =>
   height: 30%;
 }
 
-img {
+/* img {
   position: absolute;
   width: 100%;
   height: 100%;
-}
+} */
 </style>

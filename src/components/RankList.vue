@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 const rankListContainer = ref(null);
 const rankTitle = ref(null);
+const title = ref(null);
 
 onMounted(() => {
   function getAmountWidth(el) {
@@ -19,7 +20,8 @@ onMounted(() => {
     repeat: -1,
   });
 
-  const tl = gsap.timeline({
+  const horizontal = gsap.to(rankListContainer.value, {
+    x: getAmountWidth(rankListContainer.value) * -1,
     scrollTrigger: {
       trigger: rankListContainer.value,
       start: 'top top',
@@ -28,11 +30,9 @@ onMounted(() => {
       scrub: 1,
     },
   });
-  tl.to(rankListContainer.value, {
-    x: getAmountWidth(rankListContainer.value) * -1,
-  });
 
-  const tl3 = gsap.timeline({
+  gsap.to(title.value, {
+    x: getAmountWidth(rankTitle.value),
     scrollTrigger: {
       trigger: rankTitle.value,
       start: 'left left',
@@ -40,13 +40,8 @@ onMounted(() => {
       pin: true,
       scrub: true,
       horizontal: true,
-      containerAnimation: tl,
-      markers: true,
+      containerAnimation: horizontal,
     },
-  });
-
-  tl3.to('h2', {
-    x: getAmountWidth(rankTitle.value),
   });
 });
 </script>
@@ -56,7 +51,7 @@ onMounted(() => {
       <span>👇 Scroll</span>
     </div>
     <div ref="rankTitle" class="rankTitle">
-      <h2>Horizontal Scrolling</h2>
+      <h2 ref="title">Horizontal Scrolling</h2>
       <div class="cardList">
         <div v-for="n in 5" class="card">
           <h1>title</h1>
